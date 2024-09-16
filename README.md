@@ -1,9 +1,9 @@
 # GameDev-24-25 Project Demo and Script Repository
   If you're reading this! Welcome to the 2024-2025 Game Developemnt Club! We're glad to see you here.
 ## Project Description
-  This repository is a unity file I made to display a variety of common mechanics that are used in 2D unity games, whether it be a top-down or a side-scroller. This project is optimized for a top-down game, but many of the scripts are interchangible with some modification to your needs. This includes basic movement, projectiles, and aiming. While not meant to replace the need to code and develop your own scripts, these files whould make it easier to understand and begin working on your games. 
+  This repository is a unity file I made to display a variety of common mechanics that are used in 2D unity games, whether it be a top-down or a side-scroller. This project is optimized for a top-down game, but many of the scripts are interchangible with some modification to your needs. This includes basic movement, projectiles, and aiming. While not meant to replace the need to code and develop your own scripts, these files should make it easier to understand and begin working on your games. 
 #  How To Use
-  The entire repository contains the relevant information to the entire unity file, including metadata - which is most likely not needed if you wisn to use this code in your own projects. To access the scripts, enter the folder labelled "Game Dev Club Demo." the scripts are under:
+  The entire repository contains the relevant information to the entire unity file, including metadata - which is most likely not needed if you wish to use this code in your own projects. To access the scripts, enter the folder labelled "Game Dev Club Demo." the scripts are under:
   
   ***Game Dev Club Demo / Assets / Scripts***
 
