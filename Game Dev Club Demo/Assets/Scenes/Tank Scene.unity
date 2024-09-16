@@ -207,6 +207,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1089463239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1089463240}
+  m_Layer: 0
+  m_Name: BulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1089463240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089463239}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.2, y: -0.007, z: -1.8000001}
+  m_LocalScale: {x: 0.7566586, y: 0.22116403, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2068664194}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1230462109
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,8 +263,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230462109}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.882, y: -0.007, z: -1.8}
-  m_LocalScale: {x: 1.1258125, y: 0.22116403, z: 0.5}
+  m_LocalPosition: {x: 0.6974, y: -0.007, z: -1.8}
+  m_LocalScale: {x: 0.7566586, y: 0.22116403, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2068664194}
@@ -501,7 +532,7 @@ GameObject:
   - component: {fileID: 2019277549}
   m_Layer: 0
   m_Name: Tank
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -580,7 +611,7 @@ Transform:
   m_GameObject: {fileID: 2019277545}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.35}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2068664194}
@@ -664,6 +695,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1230462110}
+  - {fileID: 1089463240}
   m_Father: {fileID: 2019277548}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -676,9 +708,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2068664193}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04cd34e8572134140ae566d6a6775bd1, type: 3}
+  m_Script: {fileID: 11500000, guid: 17622670f9cb91d49865d510f0e6d600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cam: {fileID: 0}
+  mousePos: {x: 0, y: 0, z: 0}
   bullet: {fileID: 9136658261346761288, guid: 645f0f88ada77ea408226b4fc6fa10d6, type: 3}
-  bulletTransform: {fileID: 1230462110}
+  bulletTransform: {fileID: 1089463240}
   timeBetweenFiring: 0.5
+  canFire: 0
+  timer: 0

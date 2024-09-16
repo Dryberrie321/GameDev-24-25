@@ -7,7 +7,7 @@ using UnityEngine;
 //Place this script on a point which will act as the orgin of rotation
     //Place a sprite nested underneath the rotation point if desired.
 
-public class Turret : MonoBehaviour
+public class Aiming_and_Firing_2D : MonoBehaviour
 {
     private Camera _cam;
     private Vector3 mousePos;
@@ -52,7 +52,8 @@ public class Turret : MonoBehaviour
         if (Input.GetMouseButton(0) && canFire == true)
         {
             Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-                //remeber to set an object as the "bullet" in the inspector window
+                //remember to set an object as the "bullet" in the inspector window
+
             canFire = false;
         }
     }

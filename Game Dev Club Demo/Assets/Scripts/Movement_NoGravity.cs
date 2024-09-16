@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Movement_NoGravity : MonoBehaviour
 {
     Rigidbody2D rb;
     private float horizontal;

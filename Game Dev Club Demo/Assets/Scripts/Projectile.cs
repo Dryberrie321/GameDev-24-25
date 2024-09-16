@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
     Rigidbody2D rb;
     private Vector3 mousePos;
@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
 
         Vector3 rotation = transform.position - mousePos; // orgin of instantiation - mouse position = rotation of object
 
-        rb.velocity = new Vector2(direction.x, direction.y).normalized * force; 
+        rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
         //Set the velocity of the object to the direction already calculated
         //normalize means to take the values and clamp it to 1 or -1, ensuring that the distance of the mouse does not account towards speed
         //Multiplying the force afterwards ensures a consistent speed each time.
@@ -30,14 +30,17 @@ public class Bullet : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
 
-
+    
         Destroy(this.gameObject, 3f);// 3 seconds after spawning this object, delete it.
         
     }
+        /*
     void OnCollisionEnter2D (Collision2D collision)
     {
         Destroy(this.gameObject);
 
         Debug.Log("Collision");
     }
-}
+
+    */
+    }
