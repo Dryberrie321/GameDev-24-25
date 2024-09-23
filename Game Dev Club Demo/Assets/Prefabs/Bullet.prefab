@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9136658261346761286}
   - component: {fileID: 9136658261346761289}
   - component: {fileID: 9136658261346761287}
+  - component: {fileID: -2450718594238559363}
   - component: {fileID: 9136658261346761284}
   - component: {fileID: 2711822370756340214}
   m_Layer: 0
@@ -100,6 +101,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 10
+--- !u!114 &-2450718594238559363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136658261346761288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8316f6634e9b754485d1ff866bf4dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pHealth: {fileID: 0}
+  damage: 20
 --- !u!50 &9136658261346761284
 Rigidbody2D:
   serializedVersion: 4
@@ -117,7 +132,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 00f23997a523dca43992f45215065bf2, type: 2}
-  m_Interpolate: 2
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
