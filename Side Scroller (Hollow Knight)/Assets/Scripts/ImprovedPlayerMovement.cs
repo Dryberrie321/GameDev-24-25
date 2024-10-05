@@ -52,12 +52,8 @@ public class ImprovedPlayerMovement : MonoBehaviour
         }
     }
 
-
     void jump()
     {
-        // coyote time calculations
-        // ability for player to jump even if they are no longer grounded for a short peroid of time after being in the air
-        // more forgiving jump mechanics
         if (groundCheck() == true)
         {
             coyoteTime = coyoteTimeCounter;
@@ -91,6 +87,7 @@ public class ImprovedPlayerMovement : MonoBehaviour
     private void executeJumpCoyote()
     {
         rb.AddForceAtPosition(Vector2.up.normalized * jumpForce * 150, this.transform.position);
+        isJumping = true;
         jumpTime = 0;
     }
     private void FixedUpdate()
@@ -101,15 +98,58 @@ public class ImprovedPlayerMovement : MonoBehaviour
     {
         Gizmos.DrawWireCube(transform.position - transform.up * castDistance, boxSize);
     }
+
+    [SerializeField] private float jumpEnd;
+    [SerializeField] private float fallingAdd;
+    [SerializeField] private bool isJumping;
+    private bool t;
     private void gravityChange()
     {
-        if (rb.velocity.y < 0)
+        if (Input.GetKey("space"))
         {
-            rb.gravityScale = gravOnDown;
+            isJumping = true;
+            jumpEnd = 0;
+        }
+
+
+        if (groundCheck())
+        {
+            isJumping = false;
+            jumpEnd = 0;
+            t = false;
         }
         else
         {
-            rb.gravityScale = gravOnUp;
+            isJumping = true;
+        }
+
+        if (isJumping)
+        {
+            if(Input.GetKey("space") == false)
+            {
+                t = true;
+            }
+            else
+            {
+                t = false;
+            }
+        }
+        
+        if (t == true && (rb.velocity.y > 0f))
+        {
+            jumpEnd = Mathf.Lerp(0, fallingAdd, Time.deltaTime * 400);
+        }
+        else
+        {
+            jumpEnd = 0f;
+        }
+        if (rb.velocity.y < 0)
+        {
+            rb.gravityScale = gravOnDown + jumpEnd;
+        }
+        else
+        {
+            rb.gravityScale = gravOnUp + jumpEnd;
         }
     }
 }
