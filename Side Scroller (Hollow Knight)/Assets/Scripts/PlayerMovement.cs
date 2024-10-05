@@ -15,9 +15,9 @@ public class PlayerMovement : MonoBehaviour
 
     private float coyoteTimeCounter = 0.16f;
     private float coyoteTime;
-    private float jumpTimeCounter = 0.7f;
-    private float jumpTime;
-
+    private float jumpTimeCounter = 0.5f;
+    [SerializeField] private float jumpTime;
+    
 
     void Start()
     {
@@ -26,9 +26,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(groundCheck());
         sidewaysMovement();
         jump();
         groundCheck();
+        
     }
     void sidewaysMovement()
     {
@@ -46,12 +48,16 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    
     void jump()
     {
+        
         if (Input.GetKeyDown("space") && groundCheck())
         {
             executeJump();
         }
+        
+
 
         // coyote time calculations
                 // ability for player to jump even if they are no longer grounded for a short peroid of time after being in the air
@@ -65,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
                 coyoteTime -= Time.deltaTime;
             }
 
-            if (Input.GetKeyDown("space") && (groundCheck() == false))
+            if (Input.GetKeyDown("space")) /*&& (groundCheck() == false)) */
             {
                 jumpTime = jumpTimeCounter;
             }
@@ -74,25 +80,26 @@ public class PlayerMovement : MonoBehaviour
                 jumpTime -= Time.deltaTime;
             }
 
-            if ((coyoteTime >= 0.0f) && (coyoteTime != coyoteTimeCounter) && (Input.GetKeyDown("space")))
+            if ((coyoteTime >= 0.0f) && (coyoteTime != coyoteTimeCounter) && (Input.GetKeyDown("space")) && (rb.velocity.y <= 0f))
             {
                 executeJump();
             }
 
-            if ((jumpTime >= 0.0f) && (jumpTime != jumpTimeCounter) && (groundCheck() == true) && rb.velocity.y < 0)
+            if ((jumpTime >= 0.0f) && (jumpTime != jumpTimeCounter) && (groundCheck() == true) && (rb.velocity.y < 0))
             {
                 executeJumpCoyote();
             }
+
     }
 
     private void executeJump()
     {
-        rb.AddForce(Vector2.up * jumpForce * 100f);
+        rb.AddForce(Vector2.up.normalized * jumpForce * 100f);
         jumpTime = 0;
     }
     private void executeJumpCoyote()
     {
-        rb.AddForce(Vector2.up * jumpForce * 4f, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.up.normalized * jumpForce * 4f, ForceMode2D.Impulse);
         jumpTime = 0;
     }
     private void FixedUpdate()

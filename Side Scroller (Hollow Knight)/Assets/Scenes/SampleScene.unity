@@ -176,7 +176,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 15.14
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -311,8 +311,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852775759}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7445, y: -4.92, z: 0}
-  m_LocalScale: {x: 22.7691, y: 1, z: 1}
+  m_LocalPosition: {x: 1.865, y: -14.1639, z: 0}
+  m_LocalScale: {x: 61.425346, y: 3.2411268, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -328,9 +328,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1251921740}
   - component: {fileID: 1251921739}
-  - component: {fileID: 1251921738}
   - component: {fileID: 1251921737}
   - component: {fileID: 1251921741}
+  - component: {fileID: 1251921742}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Player
@@ -359,25 +359,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &1251921738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1251921736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c972226727bb4664da25037498505b7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  jumpForce: 9
-  castDistance: 0.99
-  boxSize: {x: 0.95, y: 0.19}
-  ground:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!212 &1251921739
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -461,6 +442,29 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &1251921742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251921736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b8b8c7184a669469a6c52c2137cd89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4.99
+  jumpForce: 9.28
+  castDistance: 0.98
+  boxSize: {x: 0.89, y: 0.18}
+  ground:
+    serializedVersion: 2
+    m_Bits: 8
+  jumpTimeCounter: 0.25
+  jumpTime: 8
+  gravOnUp: 4
+  gravOnDown: 6.43
 --- !u!1 &1260005723
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,8 +569,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260005723}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.4011, y: -2.5078, z: 0}
-  m_LocalScale: {x: 11.231997, y: 3.8844, z: 1}
+  m_LocalPosition: {x: 16.0283, y: -12.0299, z: 0}
+  m_LocalScale: {x: 26.988243, y: 4.44453, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
