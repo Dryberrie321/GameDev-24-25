@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(groundCheck());
         sidewaysMovement();
         jump();
         groundCheck();
@@ -47,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
             return false;
         }
     }
-
     
     void jump()
     {
@@ -56,58 +54,11 @@ public class PlayerMovement : MonoBehaviour
         {
             executeJump();
         }
-        
-
-
-        // coyote time calculations
-                // ability for player to jump even if they are no longer grounded for a short peroid of time after being in the air
-                // more forgiving jump mechanics
-            if (groundCheck() == true)
-            {
-                coyoteTime = coyoteTimeCounter;
-            }
-            else
-            {
-                coyoteTime -= Time.deltaTime;
-            }
-
-            if (Input.GetKeyDown("space")) /*&& (groundCheck() == false)) */
-            {
-                jumpTime = jumpTimeCounter;
-            }
-            else
-            {
-                jumpTime -= Time.deltaTime;
-            }
-
-            if ((coyoteTime >= 0.0f) && (coyoteTime != coyoteTimeCounter) && (Input.GetKeyDown("space")) && (rb.velocity.y <= 0f))
-            {
-                executeJump();
-            }
-
-            if ((jumpTime >= 0.0f) && (jumpTime != jumpTimeCounter) && (groundCheck() == true) && (rb.velocity.y < 0))
-            {
-                executeJumpCoyote();
-            }
-
     }
 
     private void executeJump()
     {
         rb.AddForce(Vector2.up.normalized * jumpForce * 100f);
         jumpTime = 0;
-    }
-    private void executeJumpCoyote()
-    {
-        rb.AddForce(Vector2.up.normalized * jumpForce * 4f, ForceMode2D.Impulse);
-        jumpTime = 0;
-    }
-    private void FixedUpdate()
-    {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireCube(transform.position - transform.up * castDistance, boxSize);
     }
 }
